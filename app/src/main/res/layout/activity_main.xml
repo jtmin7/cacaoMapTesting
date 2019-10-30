@@ -14,23 +14,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight = "1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="카카오맵 시현"
+                android:text="측정 데이터"
+                android:textSize="25dp"
+                android:gravity="center"
+                android:id="@+id/measurementdata"
+                android:tag="01"
+                android:clickable="true"
+                android:onClick="displayForm"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="지도"
                 android:textSize="25dp"
                 android:gravity="center"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="카카오맵 시현"
-                android:textSize="25dp"
-                android:gravity="center"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="카카오맵 시현"
+                android:text="애니메이션"
                 android:textSize="25dp"
                 android:gravity="center"/>
         </LinearLayout>

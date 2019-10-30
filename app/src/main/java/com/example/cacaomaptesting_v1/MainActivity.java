@@ -17,6 +17,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import android.util.Log;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 // 컬러 클래스 사용
@@ -148,9 +149,10 @@ public class MainActivity extends AppCompatActivity{
             Resources res = getResources();
 
             id = v.getId();
-            LinearLayout layout = (LinearLayout)v.findViewById(id);
+            TextView layout = (TextView)v.findViewById(id);
             String tag = (String)layout.getTag();
 
+            // 여기가 중요하다 실행할 클래스를 정한다
             Intent it = new Intent(this, MeasurementData.class);
             it.putExtra("it_tag", tag);
             startActivity(it);
