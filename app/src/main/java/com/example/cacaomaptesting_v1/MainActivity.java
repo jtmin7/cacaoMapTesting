@@ -3,6 +3,8 @@ package com.example.cacaomaptesting_v1;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.Manifest;
 import android.app.AlertDialog;
@@ -14,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import android.util.Log;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 // 컬러 클래스 사용
@@ -28,6 +31,9 @@ import net.daum.mf.map.api.MapCircle;
 
 // 동적 배열을 이용해 그라디언트 싸이클 만들기
 import java.util.ArrayList;
+
+// 클릭 이벤트 위해 임포트
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -135,6 +141,19 @@ public class MainActivity extends AppCompatActivity{
                 }
             }
             return circles;
+        }
+
+        public void displayForm(View v){
+            int id;
+            Resources res = getResources();
+
+            id = v.getId();
+            LinearLayout layout = (LinearLayout)v.findViewById(id);
+            String tag = (String)layout.getTag();
+
+            Intent it = new Intent(this, MeasurementData.class);
+            it.putExtra("it_tag", tag);
+            startActivity(it);
         }
 
         @Override
