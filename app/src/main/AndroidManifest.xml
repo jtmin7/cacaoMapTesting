@@ -23,10 +23,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DisplayMap">
-        </activity>
-        <activity android:name=".DisplayMeasurement">
-        </activity>
+        <activity android:name=".DisplayMap"></activity>
+        <activity android:name=".DisplayMeasurement"></activity>
+        <activity android:name=".DisplayTestingActivity"></activity>
 
 
     </application>

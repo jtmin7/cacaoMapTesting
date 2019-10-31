@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity{
 
             setContentView(R.layout.activity_main);
 
+            // ** modify
+            /*
             double dist = 0.000002 * 500 * 5;
             MapPoint jije_loc = MapPoint.mapPointWithGeoCoord(37.018787, 127.070442);
             MapPoint jije_loc02 = MapPoint.mapPointWithGeoCoord(jije_loc.getMapPointGeoCoord().latitude - dist, jije_loc.getMapPointGeoCoord().longitude - dist);
@@ -98,6 +100,9 @@ public class MainActivity extends AppCompatActivity{
 //            customMarker.setCustomImageAutoscale(true); // hdpi, xhdpi 등 안드로이드 플랫폼의 스케일을 사용할 경우 지도 라이브러리의 스케일 기능을 꺼줌.
 //            customMarker.setCustomImageAnchor(0.5f, 1.0f); // 마커 이미지중 기준이 되는 위치(앵커포인트) 지정 - 마커 이미지 좌측 상단 기준 x(0.0f ~ 1.0f), y(0.0f ~ 1.0f) 값.
 //            mMapView.addPOIItem(customMarker);
+
+              // ** modify
+              */
         }
 
         static ArrayList<MapCircle> makeGradientCircle(MapView mapview, MapPoint mappoint, int argb, int radius, int density, int tag, int centerdensity, float centerdensityarea, boolean show, boolean bordershow){
@@ -160,6 +165,20 @@ public class MainActivity extends AppCompatActivity{
 
             // 여기가 중요하다 실행할 클래스를 정한다
             Intent it = new Intent(this, DisplayMeasurement.class);
+            it.putExtra("it_tag", tag);
+            startActivity(it);
+        }
+
+        public void displayTestingActivity(View v){
+            int id;
+            Resources res = getResources();
+
+            id = v.getId();
+            TextView layout = (TextView)v.findViewById(id);
+            String tag = (String)layout.getTag();
+
+            // 여기가 중요하다 실행할 클래스를 정한다
+            Intent it = new Intent(this, DisplayTestingActivity.class);
             it.putExtra("it_tag", tag);
             startActivity(it);
         }
