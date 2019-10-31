@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import java.util.Random;
+import java.util.ArrayList;
 
 import android.content.Intent;
 
@@ -21,6 +23,13 @@ import android.util.AttributeSet;
 
 public class DisplayMeasurementData extends View{
     private Paint paint;
+
+    private int left = 100;
+    private int top = 100;
+    private int width = 300 * 4;
+    private int height = 50;
+    private int gap = 20;
+    private int number = 15;
 
     public DisplayMeasurementData(Context context) {
         super(context);
@@ -41,19 +50,29 @@ public class DisplayMeasurementData extends View{
         super.onDraw(canvas);
 
         Paint paint = new Paint(); // 페인트 객체 생성
-        paint.setColor(Color.RED); // 빨간색으로 설정
+        paint.setColor(Color.GREEN); // 빨간색으로 설정
 
-        canvas.drawRect(100, 100, 200, 200, paint);
+
+
+        ArrayList<Integer> arrayTop = new ArrayList<>();
+        for(int i=0; i<number; i++){
+            arrayTop.add(top + (height + gap)*i);
+            canvas.drawRect(left, arrayTop.get(i), left + width, arrayTop.get(i) + height, paint);
+        }
+
         // 좌표값과 페인트 객체를 이용해서 사각형을 그리는 drawRect()
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        Random random = new Random();
+        width = random.nextInt(600);
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             Toast.makeText(super.getContext(), "MotionEvent.ACTION_DOWN : " +
-                    event.getX() + ", " + event.getY(), Toast.LENGTH_SHORT).show();
+                    event.getX() + ", " + event.getY() + " ||| " + width, Toast.LENGTH_SHORT).show();
         }
 
+        invalidate();
 
         return super.onTouchEvent(event);
     }
