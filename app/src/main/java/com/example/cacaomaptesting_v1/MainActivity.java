@@ -145,11 +145,23 @@ public class MainActivity extends AppCompatActivity{
         }
 
         public void displayMeasurementData(View v){
-            DisplayMeasurementData myView = new DisplayMeasurementData(this);
-            setContentView(myView);
+//            DisplayMeasurementData myView = new DisplayMeasurementData(this);
+//            setContentView(myView);
 
 //            setContentView(R.layout.measurementdata);
             // 출처: https://m.blog.naver.com/PostView.nhn?blogId=javaking75&logNo=220850232262&proxyReferer=https%3A%2F%2Fwww.google.com%2F
+
+            int id;
+            Resources res = getResources();
+
+            id = v.getId();
+            TextView layout = (TextView)v.findViewById(id);
+            String tag = (String)layout.getTag();
+
+            // 여기가 중요하다 실행할 클래스를 정한다
+            Intent it = new Intent(this, DisplayMeasurement.class);
+            it.putExtra("it_tag", tag);
+            startActivity(it);
         }
 
         public void displayMap(View v){

@@ -17,15 +17,21 @@ import android.content.Intent;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import android.util.AttributeSet;
 
 public class DisplayMeasurementData extends View{
-
-
     private Paint paint;
 
     public DisplayMeasurementData(Context context) {
         super(context);
     }
+
+    // 뷰 클래스를 엑티비티 레이아웃에 넣기 위해서 이 함수를 오버라이딩 해야 한다
+    public DisplayMeasurementData(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+
     /**
      * 뷰가 화면에 디스플레이 될때 자동으로 호출
      * @param canvas

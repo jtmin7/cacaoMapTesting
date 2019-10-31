@@ -10,14 +10,14 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class DisplayMap extends AppCompatActivity{
+public class DisplayMeasurement extends AppCompatActivity{
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.displaymap);
+        setContentView(R.layout.displaymeasurementdata);
     }
 
     public void displayMain(View v){
