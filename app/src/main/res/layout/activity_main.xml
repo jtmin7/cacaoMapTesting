@@ -12,7 +12,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:layout_weight = "1"
             android:orientation="vertical"
             >
@@ -24,20 +24,30 @@
                 android:gravity="center"
                 android:id="@+id/measurementdata"
                 android:tag="01"
+                android:layout_weight="1"
+                android:onClick="displayMeasurementData"
                 android:clickable="true"
-                android:onClick="displayForm"/>
+                ></TextView>
+            <!--android:onClick="displayForm"/>-->
+                <!--android:clickable="true"-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="지도"
                 android:textSize="25dp"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:id="@+id/showmap"
+                android:tag="01"
+                android:clickable="true"
+                android:onClick="displayMap"
+                android:layout_weight="1"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="애니메이션"
                 android:textSize="25dp"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:layout_weight="1"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,7 +56,7 @@
             <net.daum.mf.map.api.MapView
                 android:id="@+id/map_view"
                 android:layout_width="match_parent"
-                android:layout_height="450dp"/>
+                android:layout_height="300dp"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

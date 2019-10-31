@@ -144,7 +144,16 @@ public class MainActivity extends AppCompatActivity{
             return circles;
         }
 
-        public void displayForm(View v){
+        public void displayMeasurementData(View v){
+            DisplayMeasurementData myView = new DisplayMeasurementData(this);
+            setContentView(myView);
+
+//            setContentView(R.layout.measurementdata);
+            // 출처: https://m.blog.naver.com/PostView.nhn?blogId=javaking75&logNo=220850232262&proxyReferer=https%3A%2F%2Fwww.google.com%2F
+        }
+
+        public void displayMap(View v){
+
             int id;
             Resources res = getResources();
 
@@ -153,10 +162,11 @@ public class MainActivity extends AppCompatActivity{
             String tag = (String)layout.getTag();
 
             // 여기가 중요하다 실행할 클래스를 정한다
-            Intent it = new Intent(this, MeasurementData.class);
+            Intent it = new Intent(this, DisplayMap.class);
             it.putExtra("it_tag", tag);
             startActivity(it);
         }
+
 
         @Override
         protected void onDestroy() {
