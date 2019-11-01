@@ -21,7 +21,7 @@
         android:textSize="@dimen/state_txt_size"
         android:textStyle="bold"
         android:gravity="center"
-        android:onClick="pauseAnim"
+        android:onClick="playAnim"
         android:clickable="true"
         />
     <TextView
@@ -42,12 +42,57 @@
         android:textStyle="bold"
         android:gravity="center"
         />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="아프감2"
+        android:textSize="@dimen/state_txt_size"
+        android:textStyle="bold"
+        android:gravity="center"
+        />
     <RelativeLayout
         android:id="@+id/relativeView"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="400dp"
         android:background="#000000"
         xmlns:tools = "http://schemas.android.com/tools">
+        <LinearLayout
+            android:id="@+id/testinglayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:orientation="vertical"
+            android:onClick="playAnim02"
+            android:clickable="true">
+            <TextView
+                android:text="testing"
+                android:layout_width="@dimen/view_width_01"
+                android:layout_height="@dimen/view_height_01"
+                android:textStyle="bold"
+                android:textSize="@dimen/state_txt_size"
+                android:textColor="@color/colorPrimaryDark"
+                android:background="@color/colorAccent"
+                android:textAlignment="center"/>
+            <TextView
+                android:text="testing"
+                android:layout_width="@dimen/view_width_01"
+                android:layout_height="@dimen/view_height_01"
+                android:textStyle="bold"
+                android:textSize="@dimen/state_txt_size"
+                android:textColor="@color/colorAccent"
+                android:background="@color/colorPrimaryDark"
+                android:textAlignment="center"/>
+            <TextView
+                android:text="testing"
+                android:layout_width="@dimen/view_width_01"
+                android:layout_height="@dimen/view_height_01"
+                android:textStyle="bold"
+                android:textSize="@dimen/state_txt_size"
+                android:textColor="@color/colorPrimaryDark"
+                android:background="@color/colorAccent"
+                android:textAlignment="center"/>
+        </LinearLayout>
         <ImageView
             android:id="@+id/mask"
             android:layout_width="match_parent"

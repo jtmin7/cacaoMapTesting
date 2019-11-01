@@ -2,4 +2,6 @@
 <resources>
     <dimen name="menu_height">50px</dimen>
     <dimen name="state_txt_size">20dp</dimen>
+    <dimen name="view_width_01">100dp</dimen>
+    <dimen name="view_height_01">30dp</dimen>
 </resources>
