@@ -105,7 +105,9 @@ public class DisplayTestingActivity extends AppCompatActivity {
 
 
                 LinearLayout li = (LinearLayout) findViewById(R.id.testinglayout);
-                ActiveMenu am = new ActiveMenu(li, li, (View) findViewById(R.id.stateTxt02));
+                RelativeLayout rl = (RelativeLayout)findViewById(R.id.relativeView);
+                // View menuview, View parentview, View fixview
+                ActiveMenu am = new ActiveMenu(li, rl, (View) findViewById(R.id.stateTxt02));
 
 
                 // 한 번만 이 이벤트 호출하고 리스너 삭제

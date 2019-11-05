@@ -146,9 +146,10 @@ public class ActiveMenu {
             @Override
             public void onClick(View v) {
                 // TextView 클릭될 시 할 코드작성
-                setViewAnim(animview, AnimType.TRANS_XY, 0, parentview.getWidth(), 3000, 2);
-                setViewAnim(animview, AnimType.SCALE_XY, 100, 200, 3000, 2);
-                setViewAnim(animview, AnimType.ALPHA, 50, 100, 3000, 2);
+                // ** 부모뷰의 크기에 따른 상대위치 얻기
+                setViewAnim(animview, AnimType.TRANS_XY, 0, (int)(parentview.getWidth()*0.3), 3000, 2);
+                //setViewAnim(animview, AnimType.SCALE_XY, 100, 200, 3000, 2);
+                //setViewAnim(animview, AnimType.ALPHA, 100, 100, 3000, 2);
 
             }
         });
