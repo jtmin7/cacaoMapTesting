@@ -104,6 +104,10 @@ public class DisplayTestingActivity extends AppCompatActivity {
                 set.start();
 
 
+                LinearLayout li = (LinearLayout) findViewById(R.id.testinglayout);
+                ActiveMenu am = new ActiveMenu(li, li, (View) findViewById(R.id.stateTxt02));
+
+
                 // 한 번만 이 이벤트 호출하고 리스너 삭제
                 // 출처: https://m.blog.naver.com/PostView.nhn?blogId=blackzaket&logNo=220198032622&proxyReferer=https%3A%2F%2Fwww.google.com%2F
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -215,7 +219,6 @@ public class DisplayTestingActivity extends AppCompatActivity {
         int tonum = relativelayoutwidth;
         int id= v.getId();
         LinearLayout li = (LinearLayout) findViewById(R.id.testinglayout);
-        ActiveMenu am = new ActiveMenu(li,relativeview);
 
 //        ObjectAnimator object01 = ObjectAnimator.ofFloat(asdfjlasdfkl,
 //                "translationX", 0, tonum - 200);
