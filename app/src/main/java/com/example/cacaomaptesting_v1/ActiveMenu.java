@@ -2,12 +2,21 @@ package com.example.cacaomaptesting_v1;
 
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
+import android.os.Build;
+import android.util.Size;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
 
 // 애니메이션 리스너를 위한 임포트
 import android.animation.Animator;
 import android.util.Log;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 //클래스에 대한 주석
 //@brief 간략한 설명
@@ -38,6 +47,7 @@ import android.util.Log;
 public class ActiveMenu {
     private View menuview;
     private View parentview;
+    private final ViewSize viewsize = new ViewSize();
 
     public ActiveMenu(View menuview, View parentview, View fixview){
         this.menuview = menuview;
@@ -139,7 +149,7 @@ public class ActiveMenu {
      *@throws
      */
     // 인수: 고정뷰, 애니뷰
-    public void setMenuEvent(View fixview, final View animview){
+    public void setMenuEvent(final View fixview, final View animview){
 
         fixview.setClickable(true);
         fixview.setOnClickListener(new View.OnClickListener(){
@@ -151,16 +161,82 @@ public class ActiveMenu {
                 //setViewAnim(animview, AnimType.SCALE_XY, 100, 200, 3000, 2);
                 //setViewAnim(animview, AnimType.ALPHA, 100, 100, 3000, 2);
 
+                getCreatingViewSize(animview);
+
+                ((TextView)fixview).setText("준비가 되었다");
+
+                // 1초 후 이벤트 발생
+                final Timer m_timer = new Timer();
+                TimerTask m_task = new TimerTask() {
+                    @Override
+                    public void run() {
+                        String txt = "height: " + viewsize.height + " width: " + viewsize.width;
+                        ((TextView)fixview).setText(txt);
+                        if(1 == 1){
+                            m_timer.cancel();
+                            //타이머 중단
+                        }
+                    }
+                };
+                m_timer.schedule(m_task, 1000);
             }
         });
+    }
+    public void getViewSize(final View objview, ViewSize viewsize){
+        viewsize.width = objview.getWidth();
+        viewsize.height = objview.getHeight();
+    }
+
+    /**
+     *@brief    getCreatingViewSize
+     *@details  매개변수로 전달된 뷰에 뷰 생성시 발생하는 이벤트 리스너를 걸어서 뷰가 생성된 후에 뷰의 크기를 얻는다 이미 생성된 뷰의 경우 이함수는 리스너가 걸리지 않으므로 의미가 없다 위 getViewSize 함수가 낳다
+     *@param    View objview 이 뷰에 이벤트 리스너를 걸고 뷰가 생성되면 뷰 크기를 이 클래스의 viewsize 변수에 할당한다
+     *@return   void
+     *@throws
+     */
+    private void getCreatingViewSize(final View objview){
+        // ** 뷰 생성되고 나서 나타나는 이벤트 리스너 등록
+        viewsize.height = objview.getHeight();
+        viewsize.width = objview.getWidth();
+
+        final ViewTreeObserver.OnGlobalLayoutListener mGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener(){
+            @Override
+            public void onGlobalLayout(){
+                Log.e("리니어레이아웃", "그려지다");
+
+                viewsize.height = objview.getHeight();
+                viewsize.width = objview.getWidth();
+
+                // 한 번만 이 이벤트 호출하고 리스너 삭제
+                // 출처: https://m.blog.naver.com/PostView.nhn?blogId=blackzaket&logNo=220198032622&proxyReferer=https%3A%2F%2Fwww.google.com%2F
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    objview.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                } else {
+                    objview.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                }
+            }
+        };
+        objview.getViewTreeObserver().addOnGlobalLayoutListener(mGlobalLayoutListener);
     }
 
 }
 
 
 /**
+ * @brief   ViewSize
+ * @details 정보타입 클래스(뷰의 크기를 정하고 얻을 변수를 설정하였다)
+ * @author  cjcg7
+ * @date    2019-11-01
+ * @version 1.1.1.0
+ */
+class ViewSize{
+    int width = 0;
+    int height = 0;
+}
+
+/**
  * @brief   AnimType
- * @details 애니메이션 타입들을 문자상수로 정의해 놓았다
+ * @details 정보타입 클래스(애니메이션 타입들을 문자상수로 정의해 놓았다)
  * @author  cjcg7
  * @date    2019-11-01
  * @version 1.1.1.0

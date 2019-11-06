@@ -151,7 +151,7 @@ public class DisplayTestingActivity extends AppCompatActivity {
 
 
         // ** myTimer
-        Timer m_timer = new Timer();
+        final Timer m_timer = new Timer();
         TimerTask m_task = new TimerTask() {
 
             int count  = 0;
@@ -184,7 +184,7 @@ public class DisplayTestingActivity extends AppCompatActivity {
                 tv_statetxt02.post(new Runnable() {
                     @Override
                     public void run() {
-                        tv_statetxt02.setText(fromto);
+                        //tv_statetxt02.setText(fromto);
                     }
                 });
                 tv_statetxt03.post(new Runnable() {
@@ -195,7 +195,7 @@ public class DisplayTestingActivity extends AppCompatActivity {
                 });
                 count += 1;
 
-                if(1 == -1){
+                if(1 == 1){
                     //m_timer.cancel();
                     //타이머 중단
                 }
