@@ -104,10 +104,17 @@ public class DisplayTestingActivity extends AppCompatActivity {
                 set.start();
 
 
-                LinearLayout li = (LinearLayout) findViewById(R.id.testinglayout);
+                ArrayList<LinearLayout> testinglayoutlist = new ArrayList<>();
+                testinglayoutlist.add((LinearLayout) findViewById(R.id.testinglayout01));
+                testinglayoutlist.add((LinearLayout) findViewById(R.id.testinglayout02));
+                testinglayoutlist.add((LinearLayout) findViewById(R.id.testinglayout03));
+                testinglayoutlist.add((LinearLayout) findViewById(R.id.testinglayout04));
+                testinglayoutlist.add((LinearLayout) findViewById(R.id.testinglayout05));
+
+
                 RelativeLayout rl = (RelativeLayout)findViewById(R.id.relativeView);
                 // View menuview, View parentview, View fixview
-                ActiveMenu am = new ActiveMenu(li, rl, (View) findViewById(R.id.stateTxt02));
+                ActiveMenu am = new ActiveMenu(testinglayoutlist, rl, (View) findViewById(R.id.stateTxt02), 80);
 
 
                 // 한 번만 이 이벤트 호출하고 리스너 삭제
@@ -220,7 +227,7 @@ public class DisplayTestingActivity extends AppCompatActivity {
     public void playAnim(View v){
         int tonum = relativelayoutwidth;
         int id= v.getId();
-        LinearLayout li = (LinearLayout) findViewById(R.id.testinglayout);
+        LinearLayout li = (LinearLayout) findViewById(R.id.testinglayout01);
 
 //        ObjectAnimator object01 = ObjectAnimator.ofFloat(asdfjlasdfkl,
 //                "translationX", 0, tonum - 200);
@@ -270,6 +277,15 @@ public class DisplayTestingActivity extends AppCompatActivity {
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         return inputpx * 160 / metrics.densityDpi;
+    }
+    // 이상적인 아이콘 사이즈는 0.35인치 즉 0.9cm 이다
+    // pixel 단위로 반환한다
+    public float getIdealIconSize(){
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        return (int)(metrics.densityDpi * 0.35);
+        //  dpi란 1 인치(inch)당 pixel의 수를 의미합니다.
+        // 참조: https://hashcode.co.kr/questions/44/px-dp-dip-sp%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90%EC%9D%B4-%EB%AD%94%EA%B0%80%EC%9A%94
     }
 
     // ** 리스너 삭제를 위한 메소드

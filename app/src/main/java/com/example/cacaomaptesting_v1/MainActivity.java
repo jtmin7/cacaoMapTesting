@@ -49,47 +49,47 @@ public class MainActivity extends AppCompatActivity{
 
             setContentView(R.layout.activity_main);
 
-            // ** modify
-            /*
-            double dist = 0.000002 * 500 * 5;
-            MapPoint jije_loc = MapPoint.mapPointWithGeoCoord(37.018787, 127.070442);
-            MapPoint jije_loc02 = MapPoint.mapPointWithGeoCoord(jije_loc.getMapPointGeoCoord().latitude - dist, jije_loc.getMapPointGeoCoord().longitude - dist);
-            mMapView = (MapView) findViewById(R.id.map_view);
-            mMapView.setMapCenterPoint(jije_loc, true);
-            mMapView.setZoomLevel(3, true);
-
-            MapPOIItem marker = new MapPOIItem();
-            marker.setItemName("Default Marker");
-            marker.setTag(0);
-            marker.setMapPoint(jije_loc02);
-            marker.setMarkerType(MapPOIItem.MarkerType.BluePin); // 기본으로 제공하는 BluePin 마커 모양.
-            marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin); // 마커를 클릭했을때, 기본으로 제공하는 RedPin 마커 모양.
-            mMapView.addPOIItem(marker);
-
-            MapPOIItem marker2 = new MapPOIItem();
-            marker2.setItemName("Default Marker");
-            marker2.setTag(0);
-            marker2.setMapPoint(jije_loc);
-            marker2.setMarkerType(MapPOIItem.MarkerType.RedPin); // 기본으로 제공하는 BluePin 마커 모양.
-            marker2.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin); // 마커를 클릭했을때, 기본으로 제공하는 RedPin 마커 모양.
-            mMapView.addPOIItem(marker2);
-
-
-//            MapCircle circle2 = new MapCircle(
-//                    jije_loc02, // center
-//                    100, // radius
-//                    Color.argb(128, 255, 0, 0), // strokeColor
-//                    Color.argb(128, 255, 255, 0) // fillColor
-//            );
-//            circle2.setTag(1235);
-//            mMapView.addCircle(circle2);
-
-
-            int argb = Color.argb(128/4, 255, 255, 0); // fillColor
-            makeGradientCircle(mMapView, jije_loc, argb, 1000/2, 8, 5, 2, 0.6f, true, false);
-
-            int argb02 = Color.argb(128/4, 0, 255, 0); // fillColor
-            makeGradientCircle(mMapView, jije_loc02, argb, 1000/2, 8, 15, 2, 0.6f, true, false);
+             // ** modify
+//
+//            double dist = 0.000002 * 500 * 5;
+//            MapPoint jije_loc = MapPoint.mapPointWithGeoCoord(37.018787, 127.070442);
+//            MapPoint jije_loc02 = MapPoint.mapPointWithGeoCoord(jije_loc.getMapPointGeoCoord().latitude - dist, jije_loc.getMapPointGeoCoord().longitude - dist);
+//            mMapView = (MapView) findViewById(R.id.map_view);
+//            mMapView.setMapCenterPoint(jije_loc, true);
+//            mMapView.setZoomLevel(3, true);
+//
+//            MapPOIItem marker = new MapPOIItem();
+//            marker.setItemName("Default Marker");
+//            marker.setTag(0);
+//            marker.setMapPoint(jije_loc02);
+//            marker.setMarkerType(MapPOIItem.MarkerType.BluePin); // 기본으로 제공하는 BluePin 마커 모양.
+//            marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin); // 마커를 클릭했을때, 기본으로 제공하는 RedPin 마커 모양.
+//            mMapView.addPOIItem(marker);
+//
+//            MapPOIItem marker2 = new MapPOIItem();
+//            marker2.setItemName("Default Marker");
+//            marker2.setTag(0);
+//            marker2.setMapPoint(jije_loc);
+//            marker2.setMarkerType(MapPOIItem.MarkerType.RedPin); // 기본으로 제공하는 BluePin 마커 모양.
+//            marker2.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin); // 마커를 클릭했을때, 기본으로 제공하는 RedPin 마커 모양.
+//            mMapView.addPOIItem(marker2);
+//
+//
+////            MapCircle circle2 = new MapCircle(
+////                    jije_loc02, // center
+////                    100, // radius
+////                    Color.argb(128, 255, 0, 0), // strokeColor
+////                    Color.argb(128, 255, 255, 0) // fillColor
+////            );
+////            circle2.setTag(1235);
+////            mMapView.addCircle(circle2);
+//
+//
+//            int argb = Color.argb(128/4, 255, 255, 0); // fillColor
+//            makeGradientCircle(mMapView, jije_loc, argb, 1000/2, 8, 5, 2, 0.6f, true, false);
+//
+//            int argb02 = Color.argb(128/4, 0, 255, 0); // fillColor
+//            makeGradientCircle(mMapView, jije_loc02, argb, 1000/2, 8, 15, 2, 0.6f, true, false);
 
 //            MapPOIItem customMarker = new MapPOIItem();
 //            customMarker.setItemName("Custom Marker");
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity{
 //            mMapView.addPOIItem(customMarker);
 
               // ** modify
-              */
+
         }
 
         static ArrayList<MapCircle> makeGradientCircle(MapView mapview, MapPoint mappoint, int argb, int radius, int density, int tag, int centerdensity, float centerdensityarea, boolean show, boolean bordershow){

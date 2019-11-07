@@ -57,6 +57,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight = "1">
+            <!--이 부분은 반드시 핸드폰에 직접 에뮬레이트 해 run app 할 때만 활성화 한다-->
+            <!--AVD 로는 맵을 활성화하면 애러가 뜨며 앱이 종료된다 카카오맵은 AVD에서 사용 불가능하다-->
             <!--<net.daum.mf.map.api.MapView-->
                 <!--android:id="@+id/map_view"-->
                 <!--android:layout_width="match_parent"-->
